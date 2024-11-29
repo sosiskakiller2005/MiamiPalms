@@ -1,0 +1,13 @@
+﻿<Window x:Class="MiamiPalms.View.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiamiPalms.View.Windows"
+        mc:Ignorable="d"
+        Title="Miami Palms" Height="800" Width="1300"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Frame Name="MainFrm" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
