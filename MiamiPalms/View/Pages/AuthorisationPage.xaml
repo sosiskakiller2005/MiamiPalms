@@ -9,6 +9,41 @@
       Title="AuthorisationPage">
 
     <Grid>
-        
+        <Image Source="/Resources/form.png" Height="600" Margin="0 0 180 0"/>
+        <StackPanel Width="500" Height="600">
+            <Border Height="30"/>
+            <Image Source="/Resources/logo.png" Height="150" Width="150"/>
+            <Border Height="20"/>
+            <TextBlock Text="Логин"/>
+            <Border Height="20"/>
+            <TextBox Name="LoginTb"/>
+            <Border Height="20"/>
+            <TextBlock Text="Пароль"/>
+            <Border Height="20"/>
+            <PasswordBox Name="PassTb"/>
+            <Border Height="40"/>
+            <Button Name="EntryBtn" Content="Войти" Click="EntryBtn_Click"/>
+        </StackPanel>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Source="/Resources/phone-icon.png" Height="40"/>
+            <TextBlock Text="+79253669625" Grid.Column="2" Foreground="White" HorizontalAlignment="Left"/>
+            <Image Source="/Resources/tg-icon.png" Height="40" Grid.Row="2"/>
+            <TextBlock Text="miamipalms" Grid.Row="2" Grid.Column="2" Foreground="White" HorizontalAlignment="Left"/>
+            <Image Source="/Resources/phone-icon.png" Height="40" Grid.Row="4"/>
+            <TextBlock Text="miamipalms@gmail.ru" Grid.Row="4" Grid.Column="2" Foreground="White" HorizontalAlignment="Left"/>
+        </Grid>
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiamiPalms.AppData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,14 @@ namespace MiamiPalms.View.Pages
         public AuthorisationPage()
         {
             InitializeComponent();
+        }
+
+        private void EntryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (AuthorisationHelper.Authorise(LoginTb.Text, PassTb.Password))
+            {
+                FrameHelper.selectedFrame.Navigate(new MenuPage());
+            }
         }
     }
 }

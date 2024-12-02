@@ -33,7 +33,7 @@ namespace MiamiPalms.AppData
             {
                 foreach (User user in users)
                 {
-                    if (user.Id == Convert.ToInt32(login) && user.Password == password)
+                    if (user.Login == login && user.Password == password)
                     {
                         selectedUser = user;
                         return true;

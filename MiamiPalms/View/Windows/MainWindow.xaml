@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MiamiPalms.View.Windows"
         mc:Ignorable="d"
         Title="Miami Palms" Height="800" Width="1300"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Background="#FF1E1E1E">
     <Grid>
         <Frame Name="MainFrm" NavigationUIVisibility="Hidden"/>
     </Grid>
