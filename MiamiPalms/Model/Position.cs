@@ -12,24 +12,16 @@ namespace MiamiPalms.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Player
+    public partial class Position
     {
-        public Player()
+        public Position()
         {
-            this.Statistics = new HashSet<Statistics>();
+            this.Player = new HashSet<Player>();
         }
     
         public int Id { get; set; }
-        public string Lastname { get; set; }
         public string Name { get; set; }
-        public string Surname { get; set; }
-        public int Number { get; set; }
-        public byte[] Photo { get; set; }
-        public int TeamId { get; set; }
-        public Nullable<int> PositionId { get; set; }
     
-        public virtual Position Position { get; set; }
-        public virtual Team Team { get; set; }
-        public virtual ICollection<Statistics> Statistics { get; set; }
+        public virtual ICollection<Player> Player { get; set; }
     }
 }

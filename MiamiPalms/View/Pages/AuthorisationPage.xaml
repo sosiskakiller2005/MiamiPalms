@@ -24,7 +24,7 @@
             <Border Height="40"/>
             <Button Name="EntryBtn" Content="Войти" Click="EntryBtn_Click"/>
         </StackPanel>
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10 0 10 50">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="10" />

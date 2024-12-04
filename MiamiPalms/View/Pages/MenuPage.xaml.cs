@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiamiPalms.AppData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,26 @@ namespace MiamiPalms.View.Pages
         public MenuPage()
         {
             InitializeComponent();
+        }
+
+        private void DeskBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameHelper.selectedFrame.Navigate(new DeskPage());
+        }
+
+        private void PlayersBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameHelper.selectedFrame.Navigate(new PlayersPage());
+        }
+
+        private void StatBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameHelper.selectedFrame.Navigate(new StatPage());
+        }
+
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameHelper.selectedFrame.Navigate(new AuthorisationPage());
         }
     }
 }

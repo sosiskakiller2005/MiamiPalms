@@ -69,50 +69,65 @@
     <Compile Include="AppData\AuthorisationHelper.cs" />
     <Compile Include="AppData\FrameHelper.cs" />
     <Compile Include="AppData\MessageBoxHelper.cs" />
+    <Compile Include="Model\Court.cs">
+      <DependentUpon>MiamiPalmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Game.cs">
+      <DependentUpon>MiamiPalmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MiamiPalmsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MiamiPalmsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MiamiPalmsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MiamiPalmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MiamiPalmsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MiamiPalmsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Player.cs">
+      <DependentUpon>MiamiPalmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Position.cs">
+      <DependentUpon>MiamiPalmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Statistics.cs">
+      <DependentUpon>MiamiPalmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Team.cs">
+      <DependentUpon>MiamiPalmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>MiamiPalmsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\AuthorisationPage.xaml.cs">
       <DependentUpon>AuthorisationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\DeskPage.xaml.cs">
+      <DependentUpon>DeskPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\PlayersPage.xaml.cs">
+      <DependentUpon>PlayersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\StatPage.xaml.cs">
+      <DependentUpon>StatPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Windows\PlayerInfoWindow.xaml.cs">
+      <DependentUpon>PlayerInfoWindow.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Court.cs">
-      <DependentUpon>MiamiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Game.cs">
-      <DependentUpon>MiamiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MiamiModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MiamiModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MiamiModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MiamiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MiamiModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MiamiModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Player.cs">
-      <DependentUpon>MiamiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Statistics.cs">
-      <DependentUpon>MiamiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Team.cs">
-      <DependentUpon>MiamiModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\User.cs">
-      <DependentUpon>MiamiModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -130,12 +145,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\MiamiModel.edmx">
+    <EntityDeploy Include="Model\MiamiPalmsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MiamiModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>MiamiPalmsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\MiamiModel.edmx.diagram">
-      <DependentUpon>MiamiModel.edmx</DependentUpon>
+    <None Include="Model\MiamiPalmsModel.edmx.diagram">
+      <DependentUpon>MiamiPalmsModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -147,16 +162,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\MiamiModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MiamiModel.Context.cs</LastGenOutput>
-      <DependentUpon>MiamiModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\MiamiModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MiamiModel.edmx</DependentUpon>
-      <LastGenOutput>MiamiModel.cs</LastGenOutput>
-    </Content>
+    <Resource Include="Resources\profile-icon.png" />
+    <Resource Include="Resources\exit-icon.png" />
+    <Resource Include="Resources\desk.png" />
+    <Resource Include="Resources\players.png" />
+    <Resource Include="Resources\statistics.png" />
     <Resource Include="Resources\phone-icon.png" />
     <Resource Include="Resources\tg-icon.png" />
     <Resource Include="Resources\form.png" />
@@ -165,7 +175,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Page Include="Styles\ButtonStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -211,7 +220,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\DeskPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\MenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PlayersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\StatPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,6 +240,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Windows\PlayerInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\MiamiPalmsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MiamiPalmsModel.edmx</DependentUpon>
+      <LastGenOutput>MiamiPalmsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\MiamiPalmsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MiamiPalmsModel.edmx</DependentUpon>
+      <LastGenOutput>MiamiPalmsModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

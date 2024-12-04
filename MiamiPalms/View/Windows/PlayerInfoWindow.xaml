@@ -1,0 +1,66 @@
+﻿<Window x:Class="MiamiPalms.View.Windows.PlayerInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiamiPalms.View.Windows"
+        mc:Ignorable="d"
+        Title="Информация об игроке" 
+        SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid Name="PlayerGrid" Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Image Source="{Binding Photo}" Height="300"/>
+
+        <StackPanel Grid.Column="2">
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0} {1}">
+                        <Binding Path="Lastname"/>
+                        <Binding Path="Name"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <Border Height="20"/>
+            <TextBlock Text="{Binding Number, StringFormat={}Игровой номер: {0}}"/>
+        </StackPanel>
+
+        <!--<DataGrid Name="StatisticsDg" Grid.ColumnSpan="3" Grid.Row="2" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Очки" Binding="{Binding Path=Statistics.PointsPG}"/>
+            </DataGrid.Columns>
+        </DataGrid>-->
+
+        <Grid Name="StatGrid" Grid.Row="2" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            
+            <TextBlock Text="Очки"/>
+            <TextBlock Text="ГП" Grid.Column="2"/>
+            <TextBlock Text="Подборы" Grid.Column="4"/>
+            <TextBlock Text="{Binding PointsPG}" Grid.Column="0" Grid.Row="2"/>
+            <TextBlock Text="{Binding AssistsPG}" Grid.Column="2" Grid.Row="2"/>
+            <TextBlock Text="{Binding ReboundsPG}" Grid.Column="4" Grid.Row="2"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -9,6 +9,45 @@
       Title="MenuPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".2*" />
+            <RowDefinition Height=".8*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height=".4*" />
+        </Grid.RowDefinitions>
+
+        <Button Name="PlayersBtn" Click="PlayersBtn_Click" Style="{x:Null}" Width="250" Height="100" Grid.Row="1" BorderThickness="0">
+            <Button.Background>
+                <ImageBrush ImageSource="/Resources/players.png"/>
+            </Button.Background>
+        </Button>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="DeskBtn" Click="DeskBtn_Click" Style="{x:Null}" Width="250" Height="170" BorderThickness="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/desk.png"/>
+                </Button.Background>
+            </Button>
+            <Border Width="50"/>
+            <Grid>
+                <Border Width="400" CornerRadius="74" Background="#535353"/>
+                <StackPanel >
+                    <Border Height="10"/>
+                    <Image Source="/Resources/logo.png" Height="200"/>
+                    <Border Height="10"/>
+                    <Button Name="ExitBtn" Click="ExitBtn_Click" Style="{x:Null}" Width="70" Height="70" BorderThickness="0">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Resources/exit-icon.png"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <Border Width="50"/>
+            <Button Name="StatBtn" Click="StatBtn_Click" Style="{x:Null}" Width="250" Height="170" BorderThickness="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/statistics.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

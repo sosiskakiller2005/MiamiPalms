@@ -28,6 +28,7 @@ namespace MiamiPalms.Model
         public DbSet<Court> Court { get; set; }
         public DbSet<Game> Game { get; set; }
         public DbSet<Player> Player { get; set; }
+        public DbSet<Position> Position { get; set; }
         public DbSet<Statistics> Statistics { get; set; }
         public DbSet<Team> Team { get; set; }
         public DbSet<User> User { get; set; }

@@ -34,6 +34,14 @@
           <Property Name="Number" Type="int" Nullable="false" />
           <Property Name="Photo" Type="varbinary(max)" />
           <Property Name="TeamId" Type="int" Nullable="false" />
+          <Property Name="PositionId" Type="int" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Statistics">
           <Key>
@@ -41,9 +49,9 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PlayerId" Type="int" Nullable="false" />
-          <Property Name="PointsPG" Type="decimal" Precision="2" Scale="1" Nullable="false" />
-          <Property Name="AssistsPG" Type="decimal" Precision="2" Scale="1" Nullable="false" />
-          <Property Name="ReboundsPG" Type="decimal" Precision="2" Scale="1" Nullable="false" />
+          <Property Name="PointsPG" Type="decimal" Precision="3" Scale="1" Nullable="false" />
+          <Property Name="AssistsPG" Type="decimal" Precision="3" Scale="1" Nullable="false" />
+          <Property Name="ReboundsPG" Type="decimal" Precision="3" Scale="1" Nullable="false" />
         </EntityType>
         <EntityType Name="Team">
           <Key>
@@ -102,6 +110,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Player_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Player_Team">
           <End Role="Team" Type="Self.Team" Multiplicity="1" />
           <End Role="Player" Type="Self.Player" Multiplicity="*" />
@@ -142,6 +162,7 @@
           <EntitySet Name="Court" EntityType="Self.Court" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Statistics" EntityType="Self.Statistics" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -156,6 +177,10 @@
           <AssociationSet Name="FK_Game_SecondTeam" Association="Self.FK_Game_SecondTeam">
             <End Role="Team" EntitySet="Team" />
             <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Player_Position" Association="Self.FK_Player_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Player" EntitySet="Player" />
           </AssociationSet>
           <AssociationSet Name="FK_Player_Team" Association="Self.FK_Player_Team">
             <End Role="Team" EntitySet="Team" />
@@ -208,8 +233,18 @@
           <Property Name="Number" Type="Int32" Nullable="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="TeamId" Type="Int32" Nullable="false" />
+          <Property Name="PositionId" Type="Int32" />
+          <NavigationProperty Name="Position" Relationship="Self.FK_Player_Position" FromRole="Player" ToRole="Position" />
           <NavigationProperty Name="Team" Relationship="Self.FK_Player_Team" FromRole="Player" ToRole="Team" />
           <NavigationProperty Name="Statistics" Relationship="Self.FK_Statistics_Player" FromRole="Player" ToRole="Statistics" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Player" Relationship="Self.FK_Player_Position" FromRole="Position" ToRole="Player" />
         </EntityType>
         <EntityType Name="Statistics">
           <Key>
@@ -217,9 +252,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PlayerId" Type="Int32" Nullable="false" />
-          <Property Name="PointsPG" Type="Decimal" Precision="2" Scale="1" Nullable="false" />
-          <Property Name="AssistsPG" Type="Decimal" Precision="2" Scale="1" Nullable="false" />
-          <Property Name="ReboundsPG" Type="Decimal" Precision="2" Scale="1" Nullable="false" />
+          <Property Name="PointsPG" Type="Decimal" Precision="3" Scale="1" Nullable="false" />
+          <Property Name="AssistsPG" Type="Decimal" Precision="3" Scale="1" Nullable="false" />
+          <Property Name="ReboundsPG" Type="Decimal" Precision="3" Scale="1" Nullable="false" />
           <NavigationProperty Name="Player" Relationship="Self.FK_Statistics_Player" FromRole="Statistics" ToRole="Player" />
         </EntityType>
         <EntityType Name="Team">
@@ -284,6 +319,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Player_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Player_Team">
           <End Role="Team" Type="Self.Team" Multiplicity="1" />
           <End Role="Player" Type="Self.Player" Multiplicity="*" />
@@ -324,6 +371,7 @@
           <EntitySet Name="Court" EntityType="Self.Court" />
           <EntitySet Name="Game" EntityType="Self.Game" />
           <EntitySet Name="Player" EntityType="Self.Player" />
+          <EntitySet Name="Position" EntityType="Self.Position" />
           <EntitySet Name="Statistics" EntityType="Self.Statistics" />
           <EntitySet Name="Team" EntityType="Self.Team" />
           <EntitySet Name="User" EntityType="Self.User" />
@@ -338,6 +386,10 @@
           <AssociationSet Name="FK_Game_SecondTeam" Association="Self.FK_Game_SecondTeam">
             <End Role="Team" EntitySet="Team" />
             <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Player_Position" Association="Self.FK_Player_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Player" EntitySet="Player" />
           </AssociationSet>
           <AssociationSet Name="FK_Player_Team" Association="Self.FK_Player_Team">
             <End Role="Team" EntitySet="Team" />
@@ -388,6 +440,15 @@
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="MiamiPalmsDbModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
