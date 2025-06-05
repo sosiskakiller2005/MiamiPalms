@@ -25,10 +25,7 @@ namespace MiamiPalms.View.Windows
             InitializeComponent();
             PlayerGrid.DataContext = selectedPlayer;
             StatGrid.DataContext = selectedPlayer.Statistics;
-            //List<Player> list = new List<Player>();
-            //list.Add(selectedPlayer);
-            //PlayerGrid.DataContext = selectedPlayer;
-            //StatisticsDg.DataContext = selectedPlayer;
+
         }
     }
 }

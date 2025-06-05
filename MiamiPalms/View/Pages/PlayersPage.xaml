@@ -15,6 +15,7 @@
         </Grid.RowDefinitions>
 
         <Image Source="/Resources/logo.png" HorizontalAlignment="Left" Margin="10"/>
+        <Button Name="BackBtn" Content="Назад" Click="BackBtn_Click" Height="40" HorizontalAlignment="Right" Margin="0 0 20 0"/>
         <ListBox Name="PlayersLb" MouseDoubleClick="PlayersLb_MouseDoubleClick" Grid.Row="1" Margin="20">
             <ListBox.ItemTemplate>
                 <DataTemplate>

@@ -5,10 +5,38 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MiamiPalms.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1300"
       Title="StatPage">
 
-    <Grid>
-        
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Позиция:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox x:Name="PositionComboBox"
+                  Width="200"
+                  DisplayMemberPath="Name"
+                  SelectedValuePath="Id"
+                  SelectionChanged="PositionComboBox_SelectionChanged"/>
+            <Border Width="10"/>
+            <Button Name="BackBtn" Content="Назад" Click="BackBtn_Click"/>
+        </StackPanel>
+        <DataGrid x:Name="PlayersDataGrid" Grid.Row="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Number}" FontSize="15"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Lastname}" FontSize="15"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"  FontSize="15"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Surname}"  FontSize="15"/>
+                <DataGridTextColumn Header="Позиция" Binding="{Binding Position}" FontSize="15"/>
+                <DataGridTextColumn Header="Очки" Binding="{Binding PointsPG}" FontSize="15"/>
+                <DataGridTextColumn Header="Передачи" Binding="{Binding AssistsPG}" FontSize="15"/>
+                <DataGridTextColumn Header="Подборы" Binding="{Binding ReboundsPG}" FontSize="15"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
+
 </Page>

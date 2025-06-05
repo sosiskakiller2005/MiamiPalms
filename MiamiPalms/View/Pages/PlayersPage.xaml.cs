@@ -1,4 +1,5 @@
-﻿using MiamiPalms.Model;
+﻿using MiamiPalms.AppData;
+using MiamiPalms.Model;
 using MiamiPalms.View.Windows;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,12 @@ namespace MiamiPalms.View.Pages
         {
             PlayerInfoWindow playerInfoWindow = new PlayerInfoWindow(PlayersLb.SelectedItem as Player);
             playerInfoWindow.ShowDialog();
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameHelper.selectedFrame.Navigate(new MenuPage());
+
         }
     }
 }
