@@ -256,6 +256,9 @@
       <DependentUpon>MiamiPalmsModel.edmx</DependentUpon>
       <LastGenOutput>MiamiPalmsModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\pencil-icon.png" />
+    <Resource Include="Resources\erase-icon.png" />
+    <Resource Include="Resources\desk-picture.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
